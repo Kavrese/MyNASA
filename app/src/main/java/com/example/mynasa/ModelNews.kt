@@ -1,7 +1,10 @@
 package com.example.mynasa
 
-import androidx.fragment.app.Fragment
-
 class ModelNews(
-    val list: MutableList<String>? = mutableListOf<String>()
+    var copyright: String? = null,
+    var date: String? = null,
+    var hdurl: String? = null,
+    var media_type: String? = null,
+    var title: String? = null,
+    var explanation: String? = null
 )
