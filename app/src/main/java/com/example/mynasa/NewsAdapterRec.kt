@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 
-class MultiAdapterRec(private val list: MutableList<ModelNews>): RecyclerView.Adapter<MultiAdapterRec.MyViewHolder>() {
+class NewsAdapterRec(private val list: MutableList<ModelNews>): RecyclerView.Adapter<NewsAdapterRec.MyViewHolder>() {
     class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val img_news = itemView.findViewById<ImageView>(R.id.img_news)
         val info_news = itemView.findViewById<TextView>(R.id.info_news)

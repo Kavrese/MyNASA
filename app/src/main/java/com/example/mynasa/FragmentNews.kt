@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_news.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -26,7 +25,7 @@ class FragmentNews: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         rec_news.apply {
-            adapter = MultiAdapterRec(list_)
+            adapter = NewsAdapterRec(list_)
             layoutManager = LinearLayoutManager(activity!!.applicationContext)
         }
         getNews("")
