@@ -31,12 +31,11 @@ class FragmentNews: Fragment() {
         getNews("")
     }
     fun getNews (date: String){
-        val list = mutableListOf<ModelNews>()
         val retrofit: Retrofit = Retrofit.Builder()
             .baseUrl("https://api.nasa.gov/planetary/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-        retrofit.create(RetrofitConnect::class.java).getNews().enqueue(object: Callback<ModelNews>{
+        retrofit.create(RetrofitConnect::class.java).getNews("2020-12-12").enqueue(object: Callback<ModelNews>{
             override fun onFailure(call: Call<ModelNews>, t: Throwable) {
 
             }
