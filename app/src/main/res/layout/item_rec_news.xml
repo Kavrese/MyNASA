@@ -18,13 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            app:srcCompat="@drawable/ic_launcher_background" />
-
-        <com.google.android.exoplayer2.ui.PlayerView
-            android:visibility="gone"
-            android:id="@+id/video_player"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            app:srcCompat="@color/colorPrimaryDark" />
 
         <TextView
             android:id="@+id/date_media"
