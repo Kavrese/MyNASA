@@ -12,6 +12,7 @@ class MultiAdapterRec(private val list: MutableList<ModelNews>): RecyclerView.Ad
     class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val img_news = itemView.findViewById<ImageView>(R.id.img_news)
         val info_news = itemView.findViewById<TextView>(R.id.info_news)
+        val tint_news = itemView.findViewById<TextView>(R.id.tint_news)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -26,6 +27,10 @@ class MultiAdapterRec(private val list: MutableList<ModelNews>): RecyclerView.Ad
             .load(list[position].hdurl)
             .placeholder(R.drawable.load)
             .into(holder.img_news)
-        holder.info_news.text = list[position].title
+        holder.tint_news.text = list[position].title
+        if (list[position].explanation!!.length > 64){
+            list[position].explanation = list[position].explanation!!.substring(0, 64) + "..."
+        }
+        holder.info_news.text = list[position].explanation
     }
 }
