@@ -1,41 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/lin_main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
-    android:orientation="vertical"
-    android:weightSum="100"
-    tools:context=".MainActivity">
+<androidx.constraintlayout.motion.widget.MotionLayout
+android:id="@+id/motion"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+app:layoutDescription="@xml/activity_main_scene"
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:background="@color/colorPrimary"
+android:orientation="vertical"
+android:weightSum="100"
+tools:context=".MainActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+
+    <TextView
+        android:id="@+id/text"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="10"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        app:contentInsetStart="0dp">
-
-        <TextView
-            android:id="@+id/text"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="15"
-            android:gravity="center"
-            android:padding="20dp"
-            android:text="@string/app_name"
-            android:textColor="@color/colorPrimaryDark"
-            app:autoSizeTextType="uniform" />
-    </androidx.appcompat.widget.Toolbar>
+        android:layout_height="120dp"
+        android:layout_weight="15"
+        android:padding="20dp"
+        android:gravity="center"
+        android:text="@string/app_name"
+        android:textColor="@color/colorPrimaryDark"
+        app:autoSizeTextType="uniform" />
 
     <HorizontalScrollView
+        android:id="@+id/hor"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="55dp"
         android:layout_weight="10"
-        android:scrollbars="none">
+        android:scrollbars="none"
+        app:layout_constraintTop_toBottomOf="@+id/text">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -102,29 +97,32 @@
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="5dp"
         android:layout_weight="5"
         android:autoSizeTextType="uniform"
         android:gravity="fill_horizontal"
         android:paddingLeft="10dp"
         android:text="За последние 7 дней"
-        android:textColor="@color/colorPrimaryDark" />
+        android:textColor="@color/colorPrimaryDark"
+        app:layout_constraintTop_toBottomOf="@+id/hor" />
 
     <FrameLayout
         android:id="@+id/fram"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="68" />
+        android:layout_weight="60"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_nav_view"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_weight="7"
         android:background="@color/colorPrimary"
         app:itemIconSize="40dp"
         app:itemIconTint="@color/colorPrimaryDark"
-        android:layout_weight="7"
-        app:menu="@menu/bottom_nav"/>
-
-
-</LinearLayout>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/bottom_nav" />
+</androidx.constraintlayout.motion.widget.MotionLayout>
