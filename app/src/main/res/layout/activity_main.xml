@@ -14,7 +14,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="15"
+        android:layout_weight="10"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         app:contentInsetStart="0dp">
@@ -31,11 +31,79 @@
             app:autoSizeTextType="uniform" />
     </androidx.appcompat.widget.Toolbar>
 
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/news_win"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/shape_oval"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Новости"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/mars_win"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/shape_oval"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Марс"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/earth_win"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/shape_oval"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Земля"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/asteroid_win"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/shape_oval"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Астероиды"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="20sp" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
     <FrameLayout
         android:id="@+id/fram"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="78" />
+        android:layout_weight="73" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav_view"
