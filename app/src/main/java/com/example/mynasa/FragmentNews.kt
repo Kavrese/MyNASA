@@ -50,10 +50,13 @@ class FragmentNews: Fragment() {
             override fun onFailure(call: Call<ModelNews>, t: Throwable) {
                 list_.add(ModelNews(title = "error", hdurl = "", explanation = "error"))
                 rec_news.adapter!!.notifyDataSetChanged()
+                Toast.makeText(requireContext(),t.message, Toast.LENGTH_LONG).show()
             }
 
             override fun onResponse(call: Call<ModelNews>, response: Response<ModelNews>) {
                 if (response.body() != null) {
+                    textView.visibility = View.GONE
+                    rec_news.visibility = View.VISIBLE
                     list_.add(response.body()!!)
                     list_ = sortDate(list_)
                     rec_news.adapter!!.notifyDataSetChanged()
