@@ -10,8 +10,8 @@
         android:id="@+id/textView"
         android:layout_width="200dp"
         android:layout_height="100dp"
-        android:visibility="visible"
         android:text="Загрузка"
+        android:visibility="visible"
         app:autoSizeTextType="uniform" />
 
     <androidx.recyclerview.widget.RecyclerView

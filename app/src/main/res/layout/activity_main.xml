@@ -99,11 +99,22 @@
         </LinearLayout>
     </HorizontalScrollView>
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"
+        android:autoSizeTextType="uniform"
+        android:gravity="fill_horizontal"
+        android:paddingLeft="10dp"
+        android:text="За последние 7 дней"
+        android:textColor="@color/colorPrimaryDark" />
+
     <FrameLayout
         android:id="@+id/fram"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="73" />
+        android:layout_weight="68" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav_view"

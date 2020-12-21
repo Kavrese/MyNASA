@@ -8,12 +8,12 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 
-class AdapterImage(var list: MutableList<Photos>): RecyclerView.Adapter<AdapterImage.AdapterViewHolder>() {
+class AdapterImage(var list: MutableList<ModelImage>): RecyclerView.Adapter<AdapterImage.AdapterViewHolder>() {
 
     class AdapterViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val img = itemView.findViewById<ImageView>(R.id.img)
-        val date = itemView.findViewById<TextView>(R.id.arg1)
-        val sol = itemView.findViewById<TextView>(R.id.arg2)
+        val arg1 = itemView.findViewById<TextView>(R.id.arg1)
+        val arg2 = itemView.findViewById<TextView>(R.id.arg2)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdapterViewHolder {
@@ -25,9 +25,19 @@ class AdapterImage(var list: MutableList<Photos>): RecyclerView.Adapter<AdapterI
 
     override fun onBindViewHolder(holder: AdapterViewHolder, position: Int) {
         Picasso.get()
-            .load(list[position].img_src)
+            .load(list[position].img)
             .into(holder.img)
-        holder.sol.text = list[position].sol.toString()
-        holder.date.text = list[position].earth_date
+
+        if (list[position].arg1 != null) {
+            holder.arg1.text = list[position].arg1
+        }else{
+            holder.arg1.visibility = View.GONE
+        }
+
+        if (list[position].arg2 != null) {
+            holder.arg2.text = list[position].arg2
+        }else{
+            holder.arg2.visibility = View.GONE
+        }
     }
 }

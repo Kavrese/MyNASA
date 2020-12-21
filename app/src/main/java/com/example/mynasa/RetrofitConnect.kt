@@ -10,5 +10,8 @@ interface RetrofitConnect {
     fun getNews(@Query("date") date: String?): Call<ModelNews>
 
     @GET("photos?&api_key=TwXcGEBDhnccH0HkvSC6N39sc1PEWVBhrsrn9hTc")
-    fun getMarsRoverImage(@Query("earth_date") date:String?): Call<ModelMars>
+    fun getMarsRoverImage(@Query("earth_date") date: String?): Call<ModelMars>
+
+    @GET("{date}?api_key=TwXcGEBDhnccH0HkvSC6N39sc1PEWVBhrsrn9hTc")
+    fun getDataEarthImage(@Path("date") date: String?): Call<List<ModelEarthImage>>
 }

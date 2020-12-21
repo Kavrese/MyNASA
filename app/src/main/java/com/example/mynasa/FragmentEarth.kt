@@ -7,16 +7,16 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import kotlinx.android.synthetic.main.item_earth.*
 import kotlinx.android.synthetic.main.item_mars.*
 import kotlinx.android.synthetic.main.item_mars.textView
-import kotlinx.android.synthetic.main.item_news.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class FragmentMars: Fragment() {
+class FragmentEarth: Fragment() {
     private val list: MutableList<ModelImage> = mutableListOf()
 
     override fun onCreateView(
@@ -24,35 +24,40 @@ class FragmentMars: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.item_mars, container, false)
+        return inflater.inflate(R.layout.item_earth, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        rec_mars.apply {
+        rec_earth.apply {
             adapter = AdapterImage(list)
             layoutManager = LinearLayoutManager(requireContext())
         }
-        getImage()
+        getImageData()
     }
-
-    private fun getImage(){
+    private fun getImageData(){
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/")
+            .baseUrl("https://api.nasa.gov/EPIC/api/natural/date/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-        retrofit.create(RetrofitConnect::class.java).getMarsRoverImage("2020-12-19").enqueue(object : Callback<ModelMars>{
-            override fun onFailure(call: Call<ModelMars>, t: Throwable) {
+        val years ="2019"
+        val month = "05"
+        val day = "30"
+            retrofit.create(RetrofitConnect::class.java).getDataEarthImage("$years-$month-$day").enqueue(object :
+            Callback<List<ModelEarthImage>> {
+            override fun onFailure(call: Call<List<ModelEarthImage>>, t: Throwable) {
                 Toast.makeText(requireContext(), t.message, Toast.LENGTH_LONG).show()
             }
 
-            override fun onResponse(call: Call<ModelMars>, response: Response<ModelMars>) {
+            override fun onResponse(call: Call<List<ModelEarthImage>>, response: Response<List<ModelEarthImage>>) {
                 if (response.body() != null){
                     textView.visibility = View.GONE
-                    rec_mars.visibility = View.VISIBLE
-                    for (i in response.body()!!.photos!!){
-                        list.add(ModelImage(i.img_src, i.earth_date, i.sol.toString()))
+                    rec_earth.visibility = View.VISIBLE
+                    val li = response.body()
+                    for (i in li!!){
+                        val code_img = i. image
+                        list.add(ModelImage("https://api.nasa.gov/EPIC/archive/natural/$years/$month/$day/png/$code_img.png?api_key=TwXcGEBDhnccH0HkvSC6N39sc1PEWVBhrsrn9hTc", i.date))
                     }
-                    rec_mars.adapter?.notifyDataSetChanged()
+                    rec_earth.adapter?.notifyDataSetChanged()
                 }else{
                     Toast.makeText(requireContext(), "Null", Toast.LENGTH_LONG).show()
                 }
