@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.gson.JsonObject
 import kotlinx.android.synthetic.main.item_asteroid.*
 import kotlinx.android.synthetic.main.item_asteroid.textView
 import kotlinx.android.synthetic.main.item_news.*
@@ -77,14 +78,7 @@ class FragmentAsteroid: Fragment() {
                 if (response.body() != null) {
                     textView.visibility = View.GONE
                     rec_asteroid.visibility = View.VISIBLE
-                    for (i in response.body()!!.near_earth_objects){
-                        if (mode == 0) {
-                            list_before.add(i)
-                        }else{
-                            if (mode == 1)
-                                list_after.add(i)
-                        }
-                    }
+                    val obj = response.body()!!.near_earth_objects
                     rec.adapter?.notifyDataSetChanged()
                 }else{
                     Toast.makeText(requireContext(), "Ответ Null", Toast.LENGTH_LONG).show()

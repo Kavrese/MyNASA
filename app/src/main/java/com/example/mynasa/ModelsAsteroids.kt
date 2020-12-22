@@ -1,7 +1,14 @@
 package com.example.mynasa
 
+import com.google.gson.JsonElement
+import org.json.JSONArray
+import org.json.JSONObject
+import java.util.*
+
 class AsteroidsDate(
-    val near_earth_objects: List<Asteroid>
+    val links: Any? = null,
+    val element_count: Int? = null,
+    val near_earth_objects: JsonElement? = null
 )
 
 class Asteroid(
@@ -9,16 +16,14 @@ class Asteroid(
     val id: Int? = null,
     val nasa_jpl_url: String? = null,
     val estimated_diameter: Diameter? = null,
-    val close_approach_data: List<FlyDate>? = null
+    val close_approach_data: FlyDate? = null
 )
 
 class Diameter(
-    val kilometers: Dist? = null,
     val meter: Dist? = null
 )
 
 class Dist(
-    val estimated_diameter_min: String? = null,
     val estimated_diameter_max: String? = null
 )
 

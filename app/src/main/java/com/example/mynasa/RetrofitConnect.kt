@@ -15,6 +15,6 @@ interface RetrofitConnect {
     @GET("{date}?api_key=TwXcGEBDhnccH0HkvSC6N39sc1PEWVBhrsrn9hTc")
     fun getDataEarthImage(@Path("date") date: String?): Call<List<ModelEarthImage>>
 
-    @GET("feed?start_date={start_date}&end_date={end_date}&api_key=TwXcGEBDhnccH0HkvSC6N39sc1PEWVBhrsrn9hTc")
-    fun getAsteroids(@Path("start_date") start_date: String?, @Path("end_date") end_date: String?):Call<AsteroidsDate>
+    @GET("feed?&api_key=TwXcGEBDhnccH0HkvSC6N39sc1PEWVBhrsrn9hTc")
+    fun getAsteroids(@Query("start_date") start_date: String?, @Query("end_date") end_date: String?):Call<AsteroidsDate>
 }

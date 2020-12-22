@@ -27,8 +27,8 @@ class TextItemAdapter(val list: MutableList<Asteroid>) : RecyclerView.Adapter<Te
         holder.tint.text = list[position].name
         holder.info.text = list[position].nasa_jpl_url
         holder.arg1.text = list[position].estimated_diameter?.meter!!.estimated_diameter_max
-        holder.arg2.text = list[position].close_approach_data!![0].close_approach_date
-        holder.arg3.text = list[position].close_approach_data!![0].miss_distance!!.kilometers
+        holder.arg2.text = list[position].close_approach_data!!.close_approach_date
+        holder.arg3.text = list[position].close_approach_data!!.miss_distance!!.kilometers
     }
 
     override fun getItemId(position: Int): Long {
