@@ -5,8 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import kotlinx.android.synthetic.main.item_earth.*
 
 class FragmentAsteroid: Fragment() {
+    val list: MutableList<Asteroid> = mutableListOf()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -16,6 +19,14 @@ class FragmentAsteroid: Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        rec_earth.apply {
+           // adapter =
+            layoutManager = LinearLayoutManager(requireContext())
+        }
+        getAsteroids()
+    }
+
+    private fun getAsteroids(){
 
     }
 }
