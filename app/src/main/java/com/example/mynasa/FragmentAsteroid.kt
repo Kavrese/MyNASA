@@ -52,10 +52,11 @@ class FragmentAsteroid: Fragment() {
         before_calendar.time = Date()
         before_calendar.add(Calendar.DAY_OF_MONTH, - 7)
 
-        val start_date_after = SimpleDateFormat("yyyy-MM-dd").format(now_calendar)
-        val end_date_before = SimpleDateFormat("yyyy-MM-dd").format(now_calendar.add(Calendar.DAY_OF_MONTH, -1))
-        val end_date_after = SimpleDateFormat("yyyy-MM-dd").format(after_calendar)
-        val start_date_before = SimpleDateFormat("yyyy-MM-dd").format(before_calendar)
+        val start_date_after = SimpleDateFormat("yyyy-MM-dd").format(now_calendar.time)
+        now_calendar.add(Calendar.DAY_OF_MONTH, -1)
+        val end_date_before = SimpleDateFormat("yyyy-MM-dd").format(now_calendar.time)
+        val end_date_after = SimpleDateFormat("yyyy-MM-dd").format(after_calendar.time)
+        val start_date_before = SimpleDateFormat("yyyy-MM-dd").format(before_calendar.time)
 
         getAsteroids(start_date_before, end_date_before, rec_asteroid_before, 0)
         getAsteroids(start_date_after, end_date_after, rec_asteroid_after, 1)
@@ -82,7 +83,6 @@ class FragmentAsteroid: Fragment() {
                         }else{
                             if (mode == 1)
                                 list_after.add(i)
-
                         }
                     }
                     rec.adapter?.notifyDataSetChanged()

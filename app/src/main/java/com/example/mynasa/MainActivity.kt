@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
+    var now_Fragment: Fragment? = FragmentNews()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -22,8 +23,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private fun setFragment (fragment: Fragment){
         val fragmentManager = supportFragmentManager
         val fr = fragmentManager.beginTransaction()
-        fr.replace(R.id.fram, fragment)
+        fr.add(R.id.fram, fragment)
+        fr.hide(now_Fragment!!)
         fr.commit()
+        now_Fragment = fragment
     }
 
     private fun setFocusScrollWindow(view: TextView){
