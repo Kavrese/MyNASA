@@ -34,7 +34,7 @@ class FragmentNews: Fragment() {
         }
 
         val calendar = Calendar.getInstance()
-        calendar.setTime(Date())
+        calendar.time = Date()
         for (i in 1..7) {
             val newdata: String = SimpleDateFormat("yyyy-MM-dd").format(calendar.time)
             getNews(newdata)
@@ -48,8 +48,6 @@ class FragmentNews: Fragment() {
             .build()
         retrofit.create(RetrofitConnect::class.java).getNews(date).enqueue(object: Callback<ModelNews>{
             override fun onFailure(call: Call<ModelNews>, t: Throwable) {
-                list_.add(ModelNews(title = "error", hdurl = "", explanation = "error"))
-                rec_news.adapter!!.notifyDataSetChanged()
                 Toast.makeText(requireContext(),t.message, Toast.LENGTH_LONG).show()
             }
 

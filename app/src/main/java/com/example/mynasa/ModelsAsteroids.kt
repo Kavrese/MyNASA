@@ -7,6 +7,7 @@ class AsteroidsDate(
 class Asteroid(
     val name: String? = null,
     val id: Int? = null,
+    val nasa_jpl_url: String? = null,
     val estimated_diameter: Diameter? = null,
     val close_approach_data: List<FlyDate>? = null
 )

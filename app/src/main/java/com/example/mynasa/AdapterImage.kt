@@ -40,4 +40,12 @@ class AdapterImage(var list: MutableList<ModelImage>): RecyclerView.Adapter<Adap
             holder.arg2.visibility = View.GONE
         }
     }
+
+    override fun getItemId(position: Int): Long {
+        return position.toLong()
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        return position
+    }
 }
