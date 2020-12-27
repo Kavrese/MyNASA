@@ -17,4 +17,7 @@ interface RetrofitConnect {
 
     @GET("feed?&api_key=TwXcGEBDhnccH0HkvSC6N39sc1PEWVBhrsrn9hTc")
     fun getAsteroids(@Query("start_date") start_date: String?, @Query("end_date") end_date: String?):Call<AsteroidsDate>
+
+    @GET("search?q=planets&media_type=image")
+    fun getSearch(): Call<ModelCollection>
 }
