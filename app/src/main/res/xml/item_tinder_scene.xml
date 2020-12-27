@@ -27,6 +27,16 @@
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginEnd="50dp"
             app:layout_constraintTop_toBottomOf="@+id/card" />
+        <Constraint
+            android:id="@+id/dop_img"
+            app:layout_constraintEnd_toEndOf="@+id/card"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            app:layout_constraintBottom_toBottomOf="@+id/card"
+            android:layout_marginBottom="100dp"
+            android:alpha="0.0"
+            app:layout_constraintTop_toTopOf="@+id/card"
+            app:layout_constraintStart_toStartOf="@+id/card" />
     </ConstraintSet>
 
     <ConstraintSet android:id="@+id/like">
@@ -56,6 +66,16 @@
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginEnd="50dp"
             app:layout_constraintTop_toBottomOf="@+id/card" />
+        <Constraint
+            android:id="@+id/dop_img"
+            app:layout_constraintEnd_toEndOf="@+id/card"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            app:layout_constraintBottom_toBottomOf="@+id/card"
+            android:layout_marginBottom="100dp"
+            android:alpha="0.0"
+            app:layout_constraintTop_toTopOf="@+id/card"
+            app:layout_constraintStart_toStartOf="@+id/card" />
     </ConstraintSet>
 
     <Transition
@@ -74,6 +94,11 @@
                 app:motionTarget="@+id/card"
                 app:framePosition="75"
                 android:alpha="1.0" />
+            <KeyAttribute />
+            <KeyAttribute
+                app:motionTarget="@+id/dop_img"
+                app:framePosition="25"
+                android:alpha="1" />
         </KeyFrameSet>
     </Transition>
 
@@ -93,6 +118,10 @@
                 app:motionTarget="@+id/card"
                 app:framePosition="75"
                 android:alpha="1.0" />
+            <KeyAttribute
+                app:motionTarget="@+id/dop_img"
+                app:framePosition="25"
+                android:alpha="1" />
         </KeyFrameSet>
     </Transition>
 
@@ -122,6 +151,16 @@
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginEnd="50dp"
             app:layout_constraintTop_toBottomOf="@+id/card" />
+        <Constraint
+            android:id="@+id/dop_img"
+            app:layout_constraintEnd_toEndOf="@+id/card"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            app:layout_constraintBottom_toBottomOf="@+id/card"
+            android:layout_marginBottom="100dp"
+            android:alpha="0.0"
+            app:layout_constraintTop_toTopOf="@+id/card"
+            app:layout_constraintStart_toStartOf="@+id/card" />
     </ConstraintSet>
 
 </MotionScene>

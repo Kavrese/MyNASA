@@ -36,7 +36,13 @@ class BottomTinder: Fragment() {
             }
 
             override fun onTransitionStarted(p0: MotionLayout?, p1: Int, p2: Int) {
-
+                if (p2 == R.id.like){
+                    dop_img.setImageResource(R.drawable.good)
+                }else{
+                    if (p2 == R.id.dislike){
+                        dop_img.setImageResource(R.drawable.bad)
+                    }
+                }
             }
 
             override fun onTransitionChange(p0: MotionLayout?, p1: Int, p2: Int, p3: Float) {
@@ -46,31 +52,34 @@ class BottomTinder: Fragment() {
             override fun onTransitionCompleted(p0: MotionLayout?, p1: Int) {
                 if (p1 != R.id.start) {
                     minus()
-                    setModel(list[0])
                     p0?.progress = 0.0f
                 }
             }
         })
         good.setOnClickListener {
             clickToRect(R.id.toLike)
+            dop_img.setImageResource(R.drawable.good)
         }
         bad.setOnClickListener {
             clickToRect(R.id.toDislike)
+            dop_img.setImageResource(R.drawable.bad)
         }
     }
 
     private fun clickToRect(tr: Int){
-        minus()
         motion_tinder.setTransition(tr)
         motion_tinder.transitionToEnd()
-        Handler().postDelayed({ setModel(list[0]) },600)
+        Handler().postDelayed({minus()},600)
+
     }
 
     private fun minus(){
-        list.removeAt(0)
         if (list.size == 0) {
             page++
             getListModelTinder()
+        }else{
+            list.removeAt(0)
+            setModel(list[0])
         }
     }
 
