@@ -59,8 +59,8 @@ class FragmentAsteroid: Fragment() {
         val end_date_after = SimpleDateFormat("yyyy-MM-dd").format(after_calendar.time)
         val start_date_before = SimpleDateFormat("yyyy-MM-dd").format(before_calendar.time)
 
-        getAsteroids(start_date_before, end_date_before, rec_asteroid_before, 0)
-        getAsteroids(start_date_after, end_date_after, rec_asteroid_after, 1)
+        getAsteroids(start_date_before, start_date_before, rec_asteroid_before, 0)
+        getAsteroids(start_date_after, start_date_after, rec_asteroid_after, 1)
     }
 
     private fun getAsteroids(date_start: String, date_end: String, rec: RecyclerView, mode: Int){
@@ -78,7 +78,14 @@ class FragmentAsteroid: Fragment() {
                 if (response.body() != null) {
                     textView.visibility = View.GONE
                     rec_asteroid.visibility = View.VISIBLE
-                    val obj = response.body()!!.near_earth_objects
+                    val map = response.body()!!.near_earth_objects!!
+                    val asteroids = map[map.keys.toTypedArray()[0]]
+                    for (i in asteroids!!){
+                        if(mode == 0)
+                            list_before.add(i)
+                        else
+                            list_after.add(i)
+                    }
                     rec.adapter?.notifyDataSetChanged()
                 }else{
                     Toast.makeText(requireContext(), "Ответ Null", Toast.LENGTH_LONG).show()

@@ -70,7 +70,6 @@ class BottomTinder: Fragment() {
         motion_tinder.setTransition(tr)
         motion_tinder.transitionToEnd()
         Handler().postDelayed({minus()},600)
-
     }
 
     private fun minus(){

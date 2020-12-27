@@ -9,64 +9,72 @@
         android:id="@+id/textView"
         android:layout_width="200dp"
         android:layout_height="100dp"
-        android:visibility="visible"
         android:text="Загрузка"
+        android:visibility="gone"
         app:autoSizeTextType="uniform" />
 
-    <LinearLayout
-        android:id="@+id/rec_asteroid"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:visibility="gone"
-        android:weightSum="100">
+        android:layout_marginBottom="100dp">
 
         <LinearLayout
+            android:id="@+id/rec_asteroid"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="visible"
+            android:weightSum="100">
 
-            <TextView
-                android:id="@+id/textView3"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:paddingLeft="5dp"
-                android:text="Прилетающие"
-                android:textColor="@color/colorPrimaryDark"
-                app:autoSizeTextType="uniform" />
+                android:layout_height="0dp"
+                android:layout_weight="50"
+                android:orientation="vertical">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rec_asteroid_after"
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:paddingLeft="5dp"
+                    android:text="Прилетающие"
+                    android:textColor="@color/colorPrimaryDark"
+                    app:autoSizeTextType="uniform" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rec_asteroid_after"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="visible" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:visibility="visible" />
+                android:layout_height="0dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="50"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:paddingLeft="5dp"
+                    android:text="Улитающие"
+                    android:textColor="@color/colorPrimaryDark"
+                    app:autoSizeTextType="uniform" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rec_asteroid_before"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="visible">
+
+                </androidx.recyclerview.widget.RecyclerView>
+            </LinearLayout>
+
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_marginTop="80dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:paddingLeft="5dp"
-                android:text="Улитающие"
-                android:textColor="@color/colorPrimaryDark"
-                app:autoSizeTextType="uniform" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rec_asteroid_before"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:visibility="visible">
-
-            </androidx.recyclerview.widget.RecyclerView>
-        </LinearLayout>
-
-    </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>
