@@ -5,10 +5,10 @@
         android:title="" />
 
     <item android:id="@+id/tinder"
-        android:icon="@drawable/first"
+        android:icon="@drawable/tinder"
         android:title="" />
 
     <item android:id="@+id/free"
-        android:icon="@drawable/first"
+        android:icon="@drawable/error"
         android:title="" />
 </menu>
