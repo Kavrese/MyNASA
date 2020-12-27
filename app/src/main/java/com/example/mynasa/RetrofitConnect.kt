@@ -19,5 +19,5 @@ interface RetrofitConnect {
     fun getAsteroids(@Query("start_date") start_date: String?, @Query("end_date") end_date: String?):Call<AsteroidsDate>
 
     @GET("search?q=planets&media_type=image")
-    fun getSearch(): Call<ModelCollection>
+    fun getSearch(@Query("page") page: String?): Call<ModelCollection>
 }

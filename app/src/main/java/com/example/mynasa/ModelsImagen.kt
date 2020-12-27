@@ -1,7 +1,8 @@
 package com.example.mynasa
 
 class ModelCollection(
-    var collection: Collection? = null
+    var collection: Collection? = null,
+    var links: List<Link>? = null
 )
 
 class Collection (
