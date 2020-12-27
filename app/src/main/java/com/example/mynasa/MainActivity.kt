@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(){
@@ -13,6 +14,15 @@ class MainActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setFragment(BottomMain())
+        bottom_nav_view.setOnNavigationItemSelectedListener {
+
+            when (it.itemId){
+                R.id.main -> setFragment(BottomMain())
+                R.id.tinder -> setFragment(BottomTinder())
+            }
+
+            true
+        }
     }
 
     private fun setFragment (fragment: Fragment){
